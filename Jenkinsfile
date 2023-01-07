@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'docker build ${NAME} -f ${DOCKER_FILE_PATH} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${VERSION} ."
+        sh 'docker build ${NAME} -f ${DOCKER_FILE_PATH} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${VERSION} .'
       }
     }
   }
