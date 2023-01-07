@@ -7,6 +7,11 @@ pipeline {
     IMAGE = '${NAME}:${VERSION}'
   }
   stages {
+    stage("List env vars"){
+			steps{
+				sh "printenv | sort"
+			}
+		}
     stage('Build') {
       steps {
         echo "Name: ${NAME}"
