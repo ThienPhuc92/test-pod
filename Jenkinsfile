@@ -3,12 +3,11 @@ pipeline {
   environment {
     IMAGE_REPO = 'nexus-pod'
     NAME = 'wordpress-pod'
-    VERSION = '${env.BUILD_ID}'
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build ${NAME} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${VERSION} .'
+        sh 'docker build ${NAME} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${env.BUILD_ID} .'
       }
     }
   }
