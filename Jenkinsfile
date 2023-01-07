@@ -1,11 +1,11 @@
 pipeline {
   agent none
   environment {
-    DOCKER_FILE_PATH = "~/project/wordpress-pod"
-    IMAGE_REPO = "nexus-pod"
-    NAME = "wordpress-pod"
-    VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
-    IMAGE = "${NAME}:${VERSION}"
+    DOCKER_FILE_PATH = '~/project/wordpress-pod'
+    IMAGE_REPO = 'nexus-pod'
+    NAME = 'wordpress-pod'
+    VERSION = '${env.BUILD_ID}-${env.GIT_COMMIT}'
+    IMAGE = '${NAME}:${VERSION}'
   }
   stages {
     stage('Checkout git') {
