@@ -3,15 +3,10 @@ pipeline {
   environment {
     IMAGE_REPO = 'nexus-pod'
     NAME = 'wordpress-pod'
-    VERSION = '${BUILD_ID}-${GIT_COMMIT}'
+    VERSION = '${env.BUILD_ID}-${env.GIT_COMMIT}'
     IMAGE = '${NAME}:${VERSION}'
   }
   stages {
-    stage("List env vars"){
-			steps{
-				sh "printenv | sort"
-			}
-		}
     stage('Build') {
       steps {
         echo "Name: ${NAME}"
