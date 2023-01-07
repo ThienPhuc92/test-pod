@@ -1,7 +1,6 @@
 pipeline {
   agent any
   environment {
-    DOCKER_FILE_PATH = '~/project/wordpress-pod'
     IMAGE_REPO = 'nexus-pod'
     NAME = 'wordpress-pod'
     VERSION = '${env.BUILD_ID}-${env.GIT_COMMIT}'
@@ -10,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build ${NAME} -f ${DOCKER_FILE_PATH} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${VERSION} .'
+        sh 'docker build ${NAME} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${VERSION} .'
       }
     }
   }
