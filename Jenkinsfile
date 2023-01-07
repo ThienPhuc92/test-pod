@@ -11,6 +11,8 @@ pipeline {
       steps {
         echo "Name: ${NAME}"
         echo "Version: ${VERSION}"
+        echo "${env.BUILD_ID}-${env.GIT_COMMIT}"
+        echo """${env.BUILD_ID}-${env.GIT_COMMIT}"""
         sh 'docker build ${NAME} -t ${NAME}:latest -t ${IMAGE_REPO}/${NAME}:${VERSION} .'
       }
     }
