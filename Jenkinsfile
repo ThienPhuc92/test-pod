@@ -8,7 +8,7 @@ pipeline {
     IMAGE = "${NAME}:${VERSION}"
   }
   stages {
-    stage('Checkout git') {
+    stage('Checkout Git') {
       checkout scm
     }
     stage('Build') {
