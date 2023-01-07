@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   environment {
     DOCKER_FILE_PATH = '~/project/wordpress-pod'
     IMAGE_REPO = 'nexus-pod'
