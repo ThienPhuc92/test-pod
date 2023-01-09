@@ -10,11 +10,7 @@ pipeline {
         sh 'docker build -t 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest .'
         sh 'docker push 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker pull 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
-        sh 'docker run ... \
-            --tmpfs /tmp \
-            --tmpfs /run \
-            --env ... \
-            172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
+        sh 'docker run 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
       }
     }
   }
