@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    IMAGE_REPO = 'nexus-pod' 
+    IMAGE_REPO = 'nexus-pod'
     NAME = 'wordpress-pod'
   }
   stages {
