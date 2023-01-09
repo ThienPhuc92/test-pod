@@ -7,8 +7,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t repo.thienphuc92dn.com/repository/pod-repositories/${NAME}:latest .'
-        sh 'docker push repo.thienphuc92dn.com/repository/pod-repositories/${NAME}:latest'
+        sh 'docker build -t 172.24.0.5:5000/repository/pod-repositories/${NAME}:latest .'
+        sh 'docker push 172.24.0.5:5000/repository/pod-repositories/${NAME}:latest'
       }
     }
   }
