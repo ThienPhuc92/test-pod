@@ -10,7 +10,7 @@ pipeline {
         sh 'docker build -t 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest .'
         sh 'docker push 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker pull 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
-        sh 'docker run 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
+        sh 'docker run --name some-wordpress -p 8080:80 -d 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
       }
     }
   }
