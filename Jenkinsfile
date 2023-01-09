@@ -7,10 +7,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest .'
+        sh 'docker build -t pod-repositories/${NAME}:latest .'
         sh 'docker push 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker pull 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
-        sh 'docker run --name wordpress-pod -p 8097:80 -d 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
+        sh 'docker run --name wordpress-pod -p 8097:80 -d pod-repositories/${NAME}:latest'
       }
     }
   }
