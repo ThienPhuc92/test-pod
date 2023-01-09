@@ -14,7 +14,7 @@ pipeline {
             --tmpfs /tmp \
             --tmpfs /run \
             --env ... \
-            172.24.0.5:5000/repository/pod-repositories/${NAME}:latest'
+            172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
       }
     }
   }
