@@ -1,0 +1,27 @@
+version: '3.8'
+
+networks:
+ devnet:
+  name: devnet
+  driver: bridge
+  ipam:
+    config:
+      - subnet: 172.20.0.0/24
+
+services:
+ wordpress-pod:
+  image: 172.20.0.6:5000/repository/pod-repositories/wordpress-pod:latest
+  container_name: wordpress-pod
+  restart: always
+  ports:
+    - "8085:80"
+  networks:
+    - devnet
+  environment:
+   WORDPRESS_DB_HOST: localhost:3306
+   WORDPRESS_DB_USER: pod
+   WORDPRESS_DB_PASSWORD: kdueSDpso&2361!
+   WORDPRESS_DB_NAME: 'pod'
+   WORDPRESS_DEBUG: 1
+  volumes:
+   - "~/docker-volumes/wordpress-pod:/var/www/html"
