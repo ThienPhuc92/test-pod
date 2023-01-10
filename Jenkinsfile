@@ -12,7 +12,7 @@ pipeline {
         sh 'docker push 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker pull 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker rm -f wordpress-pod'
-        sh 'docker compose -f docker/docker-compose.yml up'
+        sh 'docker-compose -f docker/docker-compose.yml up'
       }
     }
   }
