@@ -7,11 +7,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t pod-repositories/${NAME}:latest .'
+        sh 'docker build . -f docker/Dockerfile -t pod-repositories/${NAME}:latest'
+        sh 'docker image tag pod-repositories/${NAME}:latest pod-repositories/${NAME}:${GIT_COMMIT}'
         sh 'docker push 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker pull 172.20.0.6:5000/repository/pod-repositories/${NAME}:latest'
         sh 'docker rm -f wordpress-pod'
-        sh 'docker run --name wordpress-pod -p 8097:80 -d pod-repositories/${NAME}:latest'
+        sh 'docker compose -f docker/docker-compose.yml up'
       }
     }
   }
