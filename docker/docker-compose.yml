@@ -15,8 +15,8 @@ services:
   restart: always
   ports:
     - "8085:80"
-  networks:
-    - devnet
+#  networks:
+#    - devnet
   environment:
    WORDPRESS_DB_HOST: 127.0.0.1:3306
    WORDPRESS_DB_USER: pod
