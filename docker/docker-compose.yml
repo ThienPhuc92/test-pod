@@ -1,12 +1,12 @@
 version: '3.8'
 
-networks:
- devnet:
-  name: devnet
-  driver: bridge
-  ipam:
-    config:
-      - subnet: 172.20.0.0/24
+#networks:
+# devnet:
+#  name: devnet
+#  driver: bridge
+#  ipam:
+#    config:
+#      - subnet: 172.20.0.0/24
 
 services:
  wordpress-pod:
@@ -18,7 +18,7 @@ services:
   networks:
     - devnet
   environment:
-   WORDPRESS_DB_HOST: 172.20.0.1:3306
+   WORDPRESS_DB_HOST: 127.0.0.1:3306
    WORDPRESS_DB_USER: pod
    WORDPRESS_DB_PASSWORD: kdueSDpso&2361!
    WORDPRESS_DB_NAME: 'pod'
