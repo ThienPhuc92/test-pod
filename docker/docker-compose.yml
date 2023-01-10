@@ -14,7 +14,7 @@ services:
   container_name: wordpress-pod
   restart: always
   ports:
-    - "8085:80"
+    - "8088:80"
 #  networks:
 #    - devnet
   environment:
