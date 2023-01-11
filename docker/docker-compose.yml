@@ -23,5 +23,9 @@ services:
    WORDPRESS_DB_PASSWORD: kdueSDpso&2361!
    WORDPRESS_DB_NAME: 'pod'
    WORDPRESS_DEBUG: 1
+   WORDPRESS_CONFIG_EXTRA:
+     define('WP_HOME','http://10.8.0.1:8088');
+     define('WP_SITEURL','http://10.8.0.1:8088');
+   VIRTUAL_HOST: 10.8.0.1:8088
   volumes:
    - "~/docker-volumes/wordpress-pod:/var/www/html"
